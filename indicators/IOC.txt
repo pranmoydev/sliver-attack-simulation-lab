@@ -1,0 +1,7 @@
+file,sha256,/tmp/updater,<hash>
+file,path,/usr/local/bin/.sysupdate
+process,name,sysupdate.service
+network,port,8888,tcp
+network,port,9999,tcp
+sliver,session,UPSET_BIBLIOGRAPHY
+sliver,session,GEOGRAPHICAL_OEUVRE
